@@ -1,4 +1,4 @@
-package com.itacademy.nivel1;
+package com.itacademy.nivel1.exercise1;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -72,7 +72,7 @@ public class Main {
         printCollection("HashSet after adding the month8 for the first time", months);
 
         months.add(month);
-        printCollection("HashSet after attempting to add the moth8 object again", months);
+        printCollection("HashSet after attempting to add the month8 object again", months);
 
         Month anotherAugust = new Month("August");
         months.add(anotherAugust);
