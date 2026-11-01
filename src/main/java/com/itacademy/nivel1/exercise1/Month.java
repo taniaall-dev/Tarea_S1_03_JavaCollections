@@ -1,4 +1,4 @@
-package com.itacademy.nivel1;
+package com.itacademy.nivel1.exercise1;
 
 import java.util.Objects;
 
