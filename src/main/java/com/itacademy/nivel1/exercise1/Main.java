@@ -36,8 +36,6 @@ public class Main {
         monthsArrayList.add(month11);
         monthsArrayList.add(month12);
 
-        HashSet<Month> monthsHashSet = new HashSet<>(monthsArrayList);
-
         testArrayList(monthsArrayList, month8);
 
         HashSet<Month> monthsHashSet = new HashSet<>(monthsArrayList);
