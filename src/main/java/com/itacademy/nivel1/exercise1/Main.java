@@ -40,6 +40,8 @@ public class Main {
 
         testArrayList(monthsArrayList, month8);
 
+        HashSet<Month> monthsHashSet = new HashSet<>(monthsArrayList);
+
         testHashSet(monthsHashSet, month8);
 
         printWithFor(monthsArrayList);
