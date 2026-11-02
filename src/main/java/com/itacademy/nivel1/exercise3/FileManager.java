@@ -1,8 +1,6 @@
 package com.itacademy.nivel1.exercise3;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 
 public class FileManager {
@@ -28,5 +26,18 @@ public class FileManager {
         return countries;
     }
 
+    public void saveScore(String playerName, int score) throws IOException {
+
+        String path = "output/classification.txt";
+
+        String textScore = String.valueOf(score);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path, true))) {
+            writer.write(playerName);
+            writer.write(" ");
+            writer.write(textScore);
+            writer.newLine();
+        }
+    }
 
 }
