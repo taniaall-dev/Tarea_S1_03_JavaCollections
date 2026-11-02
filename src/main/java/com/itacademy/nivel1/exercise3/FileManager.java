@@ -26,9 +26,7 @@ public class FileManager {
         return countries;
     }
 
-    public void saveScore(String playerName, int score) throws IOException {
-
-        String path = "output/classification.txt";
+    public void saveScore(String path, String playerName, int score) throws IOException {
 
         String textScore = String.valueOf(score);
 
@@ -39,5 +37,4 @@ public class FileManager {
             writer.newLine();
         }
     }
-
 }
