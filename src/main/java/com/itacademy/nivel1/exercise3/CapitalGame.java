@@ -2,27 +2,36 @@ package com.itacademy.nivel1.exercise3;
 
 import com.itacademy.nivel1.ConsoleReader.ConsoleReader;
 
+import java.io.IOException;
 import java.util.*;
 
 public class CapitalGame {
 
-    private final HashMap<String, String> countries;
+    private HashMap<String, String> countries;
     private String playerName;
     private int score;
+    private final FileManager fileManager;
 
-    public CapitalGame(HashMap<String, String> countries) {
-        if(countries == null) {
-            throw new IllegalArgumentException("Countries cannot be null.");
-        }
-        this.countries = countries;
+    public CapitalGame() {
+        this.fileManager = new FileManager();
         this.playerName = "";
         this.score = 0;
     }
 
-    public void startGame() {
+    public void startGame(){
+        try {
+            countries = fileManager.readCountries("resources/countries.txt");
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading countries.");
+        }
         askPlayerName();
         playRounds();
         showFinalScore();
+        try {
+            fileManager.saveScore("output/classification.txt", playerName, score);
+        } catch (IOException e) {
+            throw new RuntimeException("Error saving score.");
+        }
     }
 
     private void askPlayerName() {
