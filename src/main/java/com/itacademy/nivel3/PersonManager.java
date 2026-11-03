@@ -6,72 +6,60 @@ import java.util.List;
 
 public class PersonManager {
 
-    private final List<Person> personsList = new ArrayList<>();
+    private final List<Person> people = new ArrayList<>();
+    private List<Person> sortedPersonList = new ArrayList<>();
+    private final Comparator<Person> comparatorByName = (p1,p2)->p1.getName().compareToIgnoreCase(p2.getName());
+    private final Comparator<Person> comparatorBySurnames = (p1,p2)->p1.getSurnames().compareToIgnoreCase(p2.getSurnames());
+    private final Comparator<Person> comparatorById = (p1,p2)->p1.getID().compareToIgnoreCase(p2.getID());
 
-    public PersonManager(List<Person> personsList) {
-        this.personsList.addAll(personsList);
+    public PersonManager(List<Person> people) {
+        this.people.addAll(people);
     }
 
-    public void addPerson (Person person) {
-        personsList.add(person);
+    public void addPerson(Person person) {
+        people.add(person);
     }
 
-    public void showListPerson(List<Person> persons) {
-        for (Person person : persons) {
+    public void showListPerson(List<Person> people) {
+        for (Person person : people) {
             System.out.println(person);
         }
     }
 
     public List<Person> sortByNameAsc() {
-        List<Person> sortedPersonList = new ArrayList<>(personsList);
-
-        Comparator<Person> comparatorByName = (p1,p2)->p1.getName().compareTo(p2.getName());
+        sortedPersonList = new ArrayList<>(people);
         sortedPersonList.sort(comparatorByName);
         return sortedPersonList;
     }
 
     public List<Person> sortByNameDesc() {
-        List<Person> sortedPersonList = new ArrayList<>(personsList);
-
-        Comparator<Person> comparatorByName = (p1,p2)->p1.getName().compareTo(p2.getName());
+        sortedPersonList = new ArrayList<>(people);
         sortedPersonList.sort(comparatorByName.reversed());
-
         return sortedPersonList;
     }
 
     public List<Person> sortBySurnamesAsc() {
-        List<Person> sortedPersonList = new ArrayList<>(personsList);
-
-        Comparator<Person> comparatorBySurnames = (p1,p2)->p1.getSurnames().compareTo(p2.getSurnames());
+        sortedPersonList = new ArrayList<>(people);
         sortedPersonList.sort(comparatorBySurnames);
-
         return sortedPersonList;
     }
 
     public List<Person> sortBySurnamesDesc() {
-        List<Person> sortedPersonList = new ArrayList<>(personsList);
-
-        Comparator<Person> comparatorBySurnames = (p1,p2)->p1.getSurnames().compareTo(p2.getSurnames());
+        sortedPersonList = new ArrayList<>(people);
         sortedPersonList.sort(comparatorBySurnames.reversed());
         return sortedPersonList;
     }
 
     public List<Person> sortByIdAsc() {
-        List<Person> sortedPersonList = new ArrayList<>(personsList);
-
-        Comparator<Person> comparatorById = (p1,p2)->p1.getID().compareTo(p2.getID());
+        sortedPersonList = new ArrayList<>(people);
         sortedPersonList.sort(comparatorById);
-
         return sortedPersonList;
     }
 
 
     public List<Person> sortByIdDesc() {
-        List<Person> sortedPersonList = new ArrayList<>(personsList);
-
-        Comparator<Person> comparatorByName = (p1,p2)->p1.getID().compareTo(p2.getID());
-        sortedPersonList.sort(comparatorByName.reversed());
-
+        sortedPersonList = new ArrayList<>(people);
+        sortedPersonList.sort(comparatorById.reversed());
         return sortedPersonList;
     }
 }
