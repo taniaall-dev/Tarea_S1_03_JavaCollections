@@ -5,8 +5,8 @@ public class Person {
     private String surnames;
     private String ID;
 
-    public Person(String nom, String surnames, String ID) {
-        this.name = nom;
+    public Person(String name, String surnames, String ID) {
+        this.name = name;
         this.surnames = surnames;
         this.ID = ID;
     }
@@ -25,10 +25,10 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "nom='" + name + '\'' +
-                ", cognom='" + surnames + '\'' +
-                ", ID='" + ID + '\'' +
-                '}';
+        return "- " +
+                "NAME: '" + name + '\'' +
+                ",SURNAME:'" + surnames + '\'' +
+                ",ID='" + ID + '\'' +
+                '.';
     }
 }
